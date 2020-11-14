@@ -2,45 +2,34 @@ import React from "react";
 import * as Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
-export interface IProps {
+export interface INegativeProps {
   color?: string;
-  negativeColor?:string;
+  negativeColor?: string;
   categories: string[];
-  data: number[];
+  data: number[][];
 }
 
-export const NagetiveBar: React.FC<IProps> = ({
-  color = "#05A793",
-  negativeColor="#E45D3B",
-  categories,
-  data,
-}) => {
+export const NagetiveBar: React.FC<INegativeProps> = ({ categories, data }) => {
   const options: Highcharts.Options = {
-    title: {
-      text: "",
-    },
-    colors: [color],
     xAxis: {
       categories: categories,
-      title: {
-        text: null,
-      },
     },
-    yAxis: [
+    series: [
       {
-        title: {
-          text: "",
-        },
+        name: "Behind Schedule",
+        data: data[0],
+        color: "#E35D39",
+        visible: true,
+        type: "bar",
       },
       {
-        linkedTo: 0,
-        opposite: true,
-        title: {
-          text: "",
-        },
+        name: "Ahead  Schedule",
+        data: data[1],
+        color: "#00A68F",
+        visible: true,
+        type: "bar",
       },
     ],
-    series: [{ name: "Logs count", type: "bar", data: data ,negativeColor}],
     credits: {
       enabled: false,
     },
