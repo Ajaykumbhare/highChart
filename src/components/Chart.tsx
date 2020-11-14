@@ -4,20 +4,18 @@ import HighchartsReact from "highcharts-react-official";
 
 export interface IProps {
   color?: string;
-  title: string;
   categories: string[];
   data: number[];
 }
 
 export const Chart: React.FC<IProps> = ({
   color = "#00AEF0",
-  title,
   categories,
   data,
 }) => {
   const options: Highcharts.Options = {
     title: {
-      text: title,
+      text: "",
     },
     colors: [color],
     xAxis: {

@@ -5,7 +5,6 @@ import HighchartsReact from "highcharts-react-official";
 export interface stackedProps {
   primaryColor?: string;
   secondaryColor?: string;
-  title: string;
   categories: string[];
   data: number[][];
 }
@@ -13,13 +12,12 @@ export interface stackedProps {
 export const StackedBar: React.FC<stackedProps> = ({
   primaryColor = "#01597A",
   secondaryColor="#199DE6",
-  title,
   categories,
   data,
 }) => {
   const options: Highcharts.Options = {
     title: {
-      text: title,
+      text: "",
     },
     xAxis: {
       categories: categories,

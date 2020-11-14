@@ -5,7 +5,6 @@ import HighchartsReact from "highcharts-react-official";
 export interface IProps {
   color?: string;
   negativeColor?:string;
-  title: string;
   categories: string[];
   data: number[];
 }
@@ -13,13 +12,12 @@ export interface IProps {
 export const NagetiveBar: React.FC<IProps> = ({
   color = "#05A793",
   negativeColor="#E45D3B",
-  title,
   categories,
   data,
 }) => {
   const options: Highcharts.Options = {
     title: {
-      text: title,
+      text: "",
     },
     colors: [color],
     xAxis: {
