@@ -14,6 +14,20 @@ export const NagetiveBar: React.FC<INegativeProps> = ({ categories, data }) => {
     xAxis: {
       categories: categories,
     },
+    yAxis: [
+      {
+        title: {
+          text: "",
+        },
+      },
+      {
+        linkedTo: 0,
+        opposite: true,
+        title: {
+          text: "",
+        },
+      },
+    ],
     series: [
       {
         name: "Behind Schedule",
@@ -32,6 +46,13 @@ export const NagetiveBar: React.FC<INegativeProps> = ({ categories, data }) => {
     ],
     credits: {
       enabled: false,
+    },
+    legend: {
+      layout: "horizontal",
+      align: "center",
+      verticalAlign: "top",
+      itemMarginTop: 10,
+      itemMarginBottom: 10,
     },
   };
 
